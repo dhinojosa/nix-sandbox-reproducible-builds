@@ -6,7 +6,5 @@ nix-channel --update
 
 # To look for elements, you can run the following
 # nix-env -qaP '*<search-term>*'
-
-nix-env --quiet -qaP '.*JDK.*'
-nix-env --quiet -qaP '.*openjdk.*'
+export NIX_SHOW_WARNINGS=0
 nix-env --quiet -qaP '.*ruby.*'
