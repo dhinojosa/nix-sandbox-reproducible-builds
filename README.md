@@ -1,6 +1,6 @@
 # Nix Sandbox Reproducible Builds
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?repository=dhinojosa/nix-sandbox-reproducible-builds)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/dhinojosa/nix-sandbox-reproducible-builds)
 
 ## Description
 
@@ -59,7 +59,15 @@ $ echo no chance | lolcat
 2. Notice in this example, we are using different channels for different packages. 
 3. `pkgs23_11.neovim`, `pkgs24_05.rustc`, `pkgs24_05.kubectl`
 
-### Demo 5: Derivation Phase
+### Demo 5: Simple Derivations
+
+1. Navigate to the _derivation_ directory.
+2. Review the _default.nix_ file and its contents. 
+3. Run the _build.sh_ script to build the derivation.
+4. The script will build the derivation and execute it, displaying "Hello from Nix!".
+5. Notice that the derivation is stored in the _result_ file in the directory.
+
+### Demo 6: Compile Derivation Phase
 
 1. Navigate to the _derivation-phase_ directory.
 2. Examine the `simple.c` file containing a basic C program.
@@ -70,3 +78,15 @@ $ echo no chance | lolcat
    $ ./build.sh
    ```
 5. The script will build the program and execute it, displaying "Hello from Nix!".
+
+### Demo 7: Nix Flakes
+
+1. Navigate to the _flake_ directory.
+2. Open the _flake.nix_ file and review the contents. This is a derivation, just a different style. 
+3. The _flake.lock_
+   file is a lockfile that pins all dependencies to specific versions, ensuring reproducible builds. You should always
+   commit this file to your repository to ensure everyone uses the same dependency versions. Open it to view the sha256
+   versions of the file that you are using. 
+4. To upgrade the versions in the lock file, you can run `nix flake update` in
+   the directory containing the _flake.nix_ file. This will fetch the latest versions of all dependencies and update the
+   lock file accordingly.
