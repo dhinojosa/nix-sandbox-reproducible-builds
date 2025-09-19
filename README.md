@@ -1,6 +1,6 @@
 # Nix Sandbox Reproducible Builds
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?repository=dhinojosa/nix-sandbox-reproducible-builds)
 
 ## Description
 
@@ -58,3 +58,15 @@ $ echo no chance | lolcat
 1. Go to the _pinning-dual-channels_ directory and view the _default.nix_ file.
 2. Notice in this example, we are using different channels for different packages. 
 3. `pkgs23_11.neovim`, `pkgs24_05.rustc`, `pkgs24_05.kubectl`
+
+### Demo 5: Derivation Phase
+
+1. Navigate to the _derivation-phase_ directory.
+2. Examine the `simple.c` file containing a basic C program.
+3. Review `simple.nix` which defines the build process using `mkDerivation`.
+4. Run the build script:
+   ```shell
+   $ cd derivation-phase
+   $ ./build.sh
+   ```
+5. The script will build the program and execute it, displaying "Hello from Nix!".
