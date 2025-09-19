@@ -1,0 +1,23 @@
+{
+    "name": "Nix Codespace",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/devcontainers/features/nix:1": {
+            "installFlakes": true
+        }
+    },
+    "remoteUser": "vscode",
+    "mounts": [
+        "source=nix-store,target=/nix,type=volume"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "jnoortheen.nix-ide",
+                "tamasfe.even-better-toml",
+                "rust-lang.rust-analyzer"
+            ]
+        }
+    },
+    "postCreateCommand": "nix --version"
+}
