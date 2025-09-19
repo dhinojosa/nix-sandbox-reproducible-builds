@@ -2,11 +2,18 @@
 
 pkgs.dockerTools.buildImage {
   name = "my-htop";
+  tag  = "1.0.0";
 
-  contents = pkgs.htop;
-
-  # Docker image configuration
-  config = {
-    Cmd = [ "/bin/htop" ];  # Run the htop binary
+  # buildEnv is to build multiple derviations in one
+  copyToRoot = pkgs.buildEnv {
+    name = "image-root";
+    paths = [ pkgs.htop ];
   };
+
+  config = {
+    Cmd = [ "/bin/htop" ];
+  };
+
+  # Optional: set a creation date (otherwise defaults to 1970)
+  created = "${builtins.currentTime}";
 }
