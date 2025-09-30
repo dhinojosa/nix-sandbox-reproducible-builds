@@ -13,7 +13,4 @@ pkgs.dockerTools.buildImage {
   config = {
     Cmd = [ "/bin/htop" ];
   };
-
-  # Optional: set a creation date (otherwise defaults to 1970)
-  created = "${builtins.currentTime}";
 }
