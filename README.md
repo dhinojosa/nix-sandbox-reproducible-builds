@@ -12,18 +12,16 @@ isolated environments, ensure reproducible builds, and manage dependencies decla
 
 You can experiment with this repository directly in your browser using cloud development environments:
 
-- **GitHub Codespaces**: Click the "Open in GitHub Codespaces" button above to launch a fully configured development
-  environment with Nix pre-installed.
+- **GitHub Codespaces**: Click the "Open in GitHub Codespaces" button above to launch a fully configured development environment with Nix pre-installed.
 
-These environments come with everything you need to run the examples and explore Nix's capabilities without any local
-setup required.
+These environments come with everything you need to run the examples and explore Nix's capabilities, with no local setup required.
 
 ## Demos
 
 ### Demo 1: `nixpkgs`
 
-. Look at the `nixpkgs` repository and view all the derivation available. https://github.com/NixOS/nixpkgs
-. Use nixpkgs search online to search for nix package derivations https://search.nixos.org/packages
+1. Look at the `nixpkgs` repository and view all the derivations available. https://github.com/NixOS/nixpkgs
+2. Use nixpkgs search online to search for nix package derivations https://search.nixos.org/packages
 
 ### Demo 2: Trying some commands
 
@@ -32,7 +30,7 @@ $ cowsay no can do
 $ echo no chance | lolcat
 ```
 
-But, let us do something more meaningful.
+But let us do something more meaningful.
 
 ```shell
 $ nix-shell -p cowsay lolcat
@@ -51,9 +49,9 @@ $ echo no chance | lolcat
 
 1. Go to the _pinning_ directory and view the _default.nix_ file.
 2. Notice that `pkgs` is pointing to a fixed version of `nixpkgs`. This is a reproducible build. It will always use the same version of `nixpkgs`.
-3. The versions of packages in this _default.nix_ will always be tired to the same version of `nixpkgs`.
+3. The versions of packages in this _default.nix_ will always be tied to the same version of `nixpkgs`.
 
-#### Demo 4.2: Pinning nixpkgs with a different channels
+#### Demo 4.2: Pinning nixpkgs with a different channel
 
 1. Go to the _pinning-dual-channels_ directory and view the _default.nix_ file.
 2. Notice in this example, we are using different channels for different packages. 
@@ -70,8 +68,8 @@ $ echo no chance | lolcat
 ### Demo 6: Compile Derivation Phase
 
 1. Navigate to the _derivation-phase_ directory.
-2. Examine the `simple.c` file containing a basic C program.
-3. Review `simple.nix` which defines the build process using `mkDerivation`.
+2. Examine the `simple.c.c` file containing a basic C program.
+3. Review `simple.nix`, which defines the build process using `mkDerivation`.
 4. Run the build script:
    ```shell
    $ cd derivation-phase
@@ -83,8 +81,7 @@ $ echo no chance | lolcat
 
 1. Navigate to the _flake_ directory.
 2. Open the _flake.nix_ file and review the contents. This is a derivation, just a different style. 
-3. The _flake.lock_
-   file is a lockfile that pins all dependencies to specific versions, ensuring reproducible builds. You should always
+3. The _flake.lock_ file is a lockfile that pins all dependencies to specific versions, ensuring reproducible builds. You should always
    commit this file to your repository to ensure everyone uses the same dependency versions. Open it to view the sha256
    versions of the file that you are using. 
 4. To upgrade the versions in the lock file, you can run `nix flake update` in
