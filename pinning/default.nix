@@ -2,8 +2,8 @@
 
 pkgs.mkShell {
   buildInputs = [
-    pkgs.neovim
-    pkgs.rustc
-    pkgs.kubectlrustc
+    pkgs.neovim 
+    pkgs.rustc 
+    pkgs.kubectl
   ];
 }
