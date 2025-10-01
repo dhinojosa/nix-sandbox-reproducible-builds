@@ -1,12 +1,11 @@
 { pkgs ? import <nixpkgs> {} }:
 
 let
-  # Stage 1: Build the application
   appBuild = pkgs.stdenv.mkDerivation {
     name = "my-app";
     src = ./src;
 
-    buildInputs = [ pkgs.nodejs pkgs.yarn ]; # Example dependencies
+    buildInputs = [ pkgs.nodejs pkgs.yarn ];
 
     buildPhase = ''
       yarn install
@@ -14,15 +13,20 @@ let
     '';
 
     installPhase = ''
-      mkdir -p $out
-      cp -r dist $out/
+      mkdir -p $out/dist
+      cp -r dist/* $out/dist/
     '';
   };
 
-  # Stage 2: Create a Docker image with only the built application
   appImage = pkgs.dockerTools.buildImage {
     name = "my-app";
-    contents = [ appBuild ];
+    tag = "1.0.0";
+
+    copyToRoot = pkgs.buildEnv {
+      name = "my-app-image-root";
+      paths = [ pkgs.nodejs appBuild ];
+    };
+
     config = {
       Cmd = [ "node" "/dist/index.js" ];
     };

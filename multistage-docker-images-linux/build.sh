@@ -1,3 +1,4 @@
 #!/bin/bash
 nix-build
-cat result
+docker load < result
+docker run -it my-app:1.0.0
