@@ -22,6 +22,7 @@ These environments come with everything you need to run the examples and explore
 
 1. Look at the `nixpkgs` repository and view all the derivations available. https://github.com/NixOS/nixpkgs
 2. Use nixpkgs search online to search for nix package derivations https://search.nixos.org/packages
+3. Use the following in a terminal to see where `nixpkgs` will be stored `nix-instantiate --eval -E '<nixpkgs>' | xargs ls -al`
 
 ### Demo 2: Trying some commands
 
