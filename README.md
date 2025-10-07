@@ -2,8 +2,6 @@
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/dhinojosa/nix-sandbox-reproducible-builds)
 
-[![Open in Ona](https://gitpod.io/button/open-in-gitpod.svg)](https://app.gitpod.io/#https://github.com/dhinojosa/nix-sandbox-reproducible-builds)
-
 ## Description
 
 This repository demonstrates the power of Nix for creating reproducible builds and development environments. Nix is a
